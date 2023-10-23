@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ *this java class get dates of the list of 100 person from  a file to create 20 teams
+ * each team has 5 members
  * @author joao
  */
 
@@ -21,7 +22,7 @@ import java.util.Map;
 public class TeamGenerator {
 
     public static void main(String[] args) {
-        List<Person> people = FileReader.loadPeopleFromFile("MOCK_DATA.csv");
+        List<Person> people = FileReader.loadPeopleFromFile("MOCK_DATA.csv"); // read a file.csv
 
         Map<String, List<Person>> teams = generateTeams(people);
 
@@ -37,10 +38,10 @@ public class TeamGenerator {
     }
 
     private static Map<String, List<Person>> generateTeams(List<Person> people) {
-        // Shuffle the list of people
-        Collections.shuffle(people);
+        
+        Collections.shuffle(people); // Shuffle the list of people
 
-        Map<String, List<Person>> teams = new HashMap<>();
+        Map<String, List<Person>> teams = new HashMap<>(); // Array list of 20 countries as a list of team
         List<String> countryNames = Arrays.asList(
             "Brazil", "Ireland", "USA", "Germany", "Spain",
             "France", "Italy", "Japan", "Canada", "Australia",
@@ -49,8 +50,7 @@ public class TeamGenerator {
         );
 
         for (String countryName : countryNames) {
-            // Pick the first 5 people as team members
-            List<Person> teamMembers = new ArrayList<>(people.subList(0, 5));
+            List<Person> teamMembers = new ArrayList<>(people.subList(0, 5)); // Pick the first 5 people as team members
             people.subList(0, 5).clear(); // Remove these people from the main list
 
             // Store the team in the map

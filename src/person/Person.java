@@ -5,7 +5,7 @@
 package person;
 
 /**
- *
+ *this java class  determine the dates of the list as created in the file.csv
  * @author joao
  */
 public class Person {
