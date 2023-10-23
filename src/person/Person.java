@@ -11,13 +11,20 @@ package person;
 public class Person {
     private int number;
     private String name;
-    private String LastName;
+    private String lastName;
     private String email;
-    
-    public Person(int number, String name, String LastName, String email){
-        this.number=number;
-        this.name=name;
-        this.LastName=LastName;
-        this.email=email;
+
+    public Person(int number, String name, String lastName, String email) {
+        this.number = number;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
     }
-} 
+
+    @Override
+    public String toString() {
+        String formattedName = lastName != null ? name + " " + lastName : name;
+        return String.format("Person {number=%d, name='%s', email='%s'}", number, formattedName, email);
+    }
+}
+
